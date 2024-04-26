@@ -5,11 +5,16 @@ import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 //components
-import HighLightText from "../components/HightLightTextr/HighLightText";
-import Button from "../components/HightLightTextr/Button";
-import CodeBlocks from "../components/HightLightTextr/CodeBlocks";
+import HighLightText from "../components/design/Home/HighLightText";
+import Button from "../components/design/Home/Button";
+import CodeBlocks from "../components/design/Home/CodeBlocks";
 
 import Banner from "../assets/Images/banner.mp4";
+import TImeLineSection from "../components/design/Home/TImeLineSection";
+import LearningLanguageSection from "../components/design/Home/LearningLanguageSection";
+import InstructorSection from "../components/design/Home/InstructorSection";
+import ReviewSection from "../components/design/Home/ReviewSection";
+import Explore from "../components/design/Home/Explore";
 // Image and Video Import
 
 const Home = () => {
@@ -62,7 +67,7 @@ const Home = () => {
         {/* Code Section 1 */}
         <div>
           <CodeBlocks
-          position={'lg:flex-row'}
+            position={"lg:flex-row"}
             heading={
               <div className="text-4xl font-semibold">
                 Unlock your
@@ -92,11 +97,11 @@ const Home = () => {
         {/* Code Section 2 */}
         <div>
           <CodeBlocks
-          position={'lg:flex-row-reverse'}
+            position={"lg:flex-row-reverse"}
             heading={
               <div className="text-4xl font-semibold">
                 Start
-                <HighLightText text={" coding potential"} />  coding in seconds
+                <HighLightText text={" coding potential"} /> coding in seconds
               </div>
             }
             subheading={
@@ -117,11 +122,77 @@ const Home = () => {
             backgroundGradient={<div className="codeblock1 absolute"></div>}
           />
         </div>
+
+            <Explore />
+
       </div>
 
       {/* Section 2 */}
 
+      <div className=" bg-pure-greys-5 text-richblack-700">
+        {/* Button and images */}
+        <div className="h-[335px] bgHomeImage">
+          {/* for set the width and center */}
+          <div className="flex flex-col items-center w-11/12 max-w-maxContent mx-auto gap-5">
+            {/* Buttons */}
+            <div className="flex flex-row gap-7 text-white mt-44">
+              <Button active={true} linkto={"/signup"}>
+                <div className="flex flex-row items-center gap-3">
+                  Expolre New Catalog
+                  <FaArrowRight />
+                </div>
+              </Button>
+              <Button active={false} linkto={"/login"}>
+                <div className="flex flex-row items-center gap-3">
+                  Learn More
+                  <FaArrowRight />
+                </div>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* white-section */}
+
+        <div className="flex flex-col items-center w-11/12 max-w-maxContent mx-auto gap-7 justify-center">
+          <div className="flex flex-row gap-5 mt-8">
+            <div className="text-4xl px-4 py-1 font-semibold">
+              Get the skills you need for a{" "}
+              <HighLightText text={"job that is in demand."} />
+            </div>
+            <div className="flex flex-col px-4 py-1 gap-10 w-[60%] items-start">
+              <p>
+                The modern StudyNotion is the dictates its own terms. Today, to
+                be a competitive specialist requires more than professional
+                skills.
+              </p>
+              <div>
+                <Button active={true} linkto={"/login"}>
+                  <div className="flex flex-row items-center gap-3">
+                    Learn More
+                  </div>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <TImeLineSection />
+
+          <LearningLanguageSection />
+        </div>
+
+      </div>
+
       {/* Section 3 */}
+
+      <div className="flex flex-col items-center justify-center w-11/12 max-w-maxContent mx-auto text-white space-y-8">
+
+                <InstructorSection />
+
+              <h2 className="text-4xl font-semibold text-center mt-10">review from Other learners</h2>
+
+                <ReviewSection />
+      </div>
 
       {/* Section 4 */}
     </div>

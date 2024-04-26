@@ -5,3 +5,7 @@
 html , body{
     overflow-x: hidden;
 }
+
+.bgHomeImage {
+    background-image: url('../src/assets/Images/bghome.svg');
+}

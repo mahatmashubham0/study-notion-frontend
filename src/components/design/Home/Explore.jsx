@@ -58,7 +58,6 @@ const Explore = () => {
       <div className="lg:h-[150px] ">
         <div className="flex flex-col md:flex-row items-center gap-10 justify-between w-full">
           {courses.map((element, index) => {
-            console.log("==>",element)
             return (
               <div key={index}>
                 <CourseCard 

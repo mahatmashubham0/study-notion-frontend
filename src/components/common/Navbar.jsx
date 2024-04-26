@@ -8,24 +8,27 @@ import { useLocation } from "react-router-dom";
 const Navbar = () => {
   const location = useLocation();
   const HighLightNavbar = (route) => {
-    console.log("--->", location.pathname);
-    console.log("==>", { path: route });
-    console.log(matchPath({ path: route }, location.pathname));
+    console.log("It take url path except of localhost:3300", location.pathname);
+    console.log("we have to write { path: route } beacuse if we use matchPath function", { path: route });
     return matchPath({ path: route }, location.pathname);
   };
 
   return (
     <div className=" flex h-14 items-center justify-center border-b-[1px] border-b-richblack-600">
       <div className="flex flex-row items-center justify-between max-w-maxContent w-11/12">
+
+        {/* Icons */}
         <Link to={"/"} className="">
           <img src={Logo} alt="" srcset="" loading="lazy" width={150} />
         </Link>
+
+        {/* Navbar */}
         <div className="text-white flex flex-row gap-4">
           {NavbarLinks.map((element, index) => {
             return (
               <div key={index}>
-                {element.title === "Catalog" ? (
-                  <div></div>
+                {element.title === "Catalog" ? ( // we use this beacuse we want to add catalog data fetch from Backend
+                  <div></div>   //  here we write code which come from backend
                 ) : (
                   <Link
                     className={`${
@@ -42,6 +45,9 @@ const Navbar = () => {
             );
           })}
         </div>
+
+        {/* Login and signup */}
+
         <div className="flex flex-row gap-4">
           <Button active={false} linkto={"/signup"}>
             <div className="flex text-white flex-row items-center gap-3">

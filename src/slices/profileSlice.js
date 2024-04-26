@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const profileSlice = createSlice({  // here we create slice in which slice has name , initial values , reducers means collection of function 
-    name: "auth",               // setToken is function that update the initial vales
+    name: "profile",               // setToken is function that update the initial vales
     initialState: initialState,
     reducers: {
         setUser(state , value) {
@@ -18,4 +18,4 @@ const profileSlice = createSlice({  // here we create slice in which slice has n
 })
 
 export const {setUser  , getUser} = profileSlice.actions;  // profileSlice ke function ko export kr rhe hai actions means function
-export default authSlice.reducer
+export default profileSlice.reducer

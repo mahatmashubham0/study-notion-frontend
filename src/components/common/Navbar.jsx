@@ -4,12 +4,21 @@ import Logo from "../../assets/Logo/Logo-Full-Light.png";
 import { NavbarLinks } from "../../data/navbar-links";
 import Button from "../design/Home/Button";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Navbar = () => {
+  const { token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.profile);
+  const { totalItems } = useSelector((state) => state.cart);
+
   const location = useLocation();
   const HighLightNavbar = (route) => {
-    console.log("It take url path except of localhost:3300", location.pathname);
-    console.log("we have to write { path: route } beacuse if we use matchPath function", { path: route });
+    // console.log("It take url path except of localhost:3300", location.pathname);
+    // console.log(
+    //   "we have to write { path: route } beacuse if we use matchPath function",
+    //   { path: route }
+    // );
     return matchPath({ path: route }, location.pathname);
   };
 
@@ -28,7 +37,10 @@ const Navbar = () => {
             return (
               <div key={index}>
                 {element.title === "Catalog" ? ( // we use this beacuse we want to add catalog data fetch from Backend
-                  <div></div>   //  here we write code which come from backend
+                  //  here we write code which come from backend
+                  <div> 
+                    
+                  </div> 
                 ) : (
                   <Link
                     className={`${
@@ -48,16 +60,30 @@ const Navbar = () => {
 
         {/* Login and signup */}
 
-        <div className="flex flex-row gap-4">
-          <Button active={false} linkto={"/signup"}>
-            <div className="flex text-white flex-row items-center gap-3">
-              Login
-            </div>
-          </Button>
-          <Button active={true} linkto={"/signup"}>
-            <div className="flex flex-row items-center gap-3">Sign Up</div>
-          </Button>
+        <div className="flex flex-row gap-x-4">
+
+          {user && user?.accountType !== "Instructor" && (
+            <Link to={"/dashboard/cart"} className="relative">
+              <AiOutlineShoppingCart />
+              {totalItems > 0 && <span>{totalItems}</span>}
+            </Link>
+          )}
+
+          {token === null && (
+            <Button active={false}  linkto={"/login"}>
+              <div className="flex text-white flex-row items-center gap-3">Login</div>
+            </Button>
+          )}
+
+          {token === null && (
+            <Button active={true} linkto={"/signup"}>
+              <div className="flex flex-row items-center gap-3">Sign Up</div>
+            </Button>
+          )}
+
+          {token !== null && <div></div>}
         </div>
+        
       </div>
     </div>
   );

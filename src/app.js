@@ -5,6 +5,7 @@ import Navbar from "./components/common/Navbar";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
+
 const app = () => {
   return (
     <div className="w-screen min-h-screen flex flex-col bg-richblack-900 font-inter">

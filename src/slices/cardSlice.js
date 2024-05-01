@@ -3,6 +3,7 @@ import {toast} from 'react-hot-toast'
 
 const initialState = {
     totalItems: localStorage.getItem("totalItems") ? JSON.parse(localStorage.getItem("totalItems")) : 0,
+    notPresent: null
 }
 
 const cardSlice = createSlice({  // here we create slice in which slice has name , initial values , reducers means collection of function 
